@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha Core Fitness</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Heroicons for SVG icons -->
+    <link href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg" rel="preload" as="image" crossorigin="anonymous">
+    <style>
+        /* Custom dark gradient for hero */
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.6)),
+                              url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+        /* Custom card hover effect */
+        .card-hover {
+            @apply transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl hover:bg-gray-800/50;
+        }
+        /* Testimonial specific styles */
+        .testimonial-card {
+            @apply bg-gray-800 bg-opacity-50 rounded-xl p-6 card-hover hover:bg-gray-800/70 border border-gray-700;
+        }
+        /* Form styles */
+        .form-input {
+            @apply w-full px-4 py-3 mb-4 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-transparent;
+        }
+        .form-textarea {
+            @apply w-full px-4 py-3 mb-4 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-transparent min-h-[100px] resize-y;
+        }
+        .form-submit {
+            @apply bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full transition-transform duration-300 transform hover:scale-105 shadow-lg w-full mt-4;
+        }
+        /* Contact info card */
+        .contact-card {
+            @apply bg-gray-800 bg-opacity-50 rounded-xl p-6 card-hover hover:bg-gray-800/70 border border-gray-700;
+        }
+        /* Success message styles */
+        #successMessage {
+            @apply hidden mt-6 p-4 bg-green-500/10 text-green-400 rounded-lg border border-green-500/20;
+        }
+        #successMessage svg {
+            @apply h-5 w-5 flex-shrink-0;
+        }
+        #successMessage h3 {
+            @apply text-lg font-medium text-white;
+        }
+        #successMessage div {
+            @apply text-sm;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-gray-900 text-white">
+    <!-- Hero Section -->
+    <section class="hero-bg flex flex-col items-center justify-center text-center text-white py-12">
+        <div class="max-w-4xl px-6 sm:px-0">
+            <h1 class="text-5xl font-bold mb-4 drop-shadow-lg">
+                Alpha Core Fitness
+            </h1>
+            <p class="text-xl mb-8 drop-shadow-sm">
+                Unleash Your Strength, Transform Your Life
+            </p>
+            <a href="#" id="joinNowBtn" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-4 px-12 rounded-full
+                         transition-transform duration-300 transform hover:scale-105
+                         shadow-lg drop-shadow-lg">
+                Join Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Our Services Section -->
+    <section id="services" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">
+                Our Services
+            </h2>
+            <div class="gap-8 sm:grid-cols-1 lg:grid-cols-3">
+                <!-- Cardio Card -->
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-8 text-center card-hover hover:bg-gray-800/70">
+                    <div class="mb-6">
+                        <svg class="w-12 h-12 text-amber-600 mx-auto">
+                            <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-heart-beat"></use>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">
+                        Cardio
+                    </h3>
+                    <p class="text-gray-300 mb-6">
+                        Improve cardiovascular health and endurance with state-of-the-art treadmills, ellipticals, and rowing machines.
+                    </p>
+                </div>
+
+                <!-- Strength Training Card -->
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-8 text-center card-hover hover:bg-gray-800/70">
+                    <div class="mb-6">
+                        <svg class="w-12 h-12 text-amber-600 mx-auto">
+                            <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-dumbbell"></use>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">
+                        Strength Training
+                    </h3>
+                    <p class="text-gray-300 mb-6">
+                        Build strength and muscle with free weights, resistance machines, and expert guidance from certified trainers.
+                    </p>
+                </div>
+
+                <!-- Personal Training Card -->
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-8 text-center card-hover hover:bg-gray-800/70">
+                    <div class="mb-6">
+                        <svg class="w-12 h-12 text-amber-600 mx-auto">
+                            <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-user-group"></use>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">
+                        Personal Training
+                    </h3>
+                    <p class="text-gray-300 mb-6">
+                        Get personalized workout plans, one-on-one coaching, and nutritional guidance to reach your fitness goals faster.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Pricing Section -->
+    <section id="pricing" class="py-16 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">
+                Membership Pricing
+            </h2>
+            <div class="grid gap-8 sm:grid-cols-1 lg:grid-cols-3">
+                <!-- Monthly Plan -->
+                <div class="bg-gray-900 bg-opacity-50 rounded-xl p-8 text-center card-hover hover:bg-gray-900/70 border border-gray-700">
+                    <h3 class="text-xl font-bold mb-4">
+                        Monthly
+                    </h3>
+                    <p class="text-4xl font-bold text-amber-600 mb-4">
+                        5,000 PKR
+                    </p>
+                    <p class="text-gray-400 mb-6">
+                        /month
+                    </p>
+                    <ul class="text-left text-gray-300 space-y-4 mb-8">
+                        <li class="flex items-center justify-start">
+                            <svg class="w-5 h-5 text-amber-600 mr-3">
+                                <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-check"></use>
+                            </svg>
+                            Access to all equipment
+                        </li>
+                        <li class="flex items-center justify-start">
+                            <svg class="w-5 h-5 text-amber-600 mr-3">
+                                <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-check"></use>
+                            </svg>
+                            Group fitness classes
+                        </li>
+                        <li class="flex items-center justify-start">
+                            <svg class="w-5 h-5 text-amber-600 mr-3">
+                                <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-check"></use>
+                            </svg>
+                            Locker room access
+                        </li>
+                        <li class="flex items-center justify-start">
+                            <svg class="w-5 h-5 text-amber-600 mr-3">
+                                <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-check"></use>
+                            </svg>
+                            Free fitness assessment
+                        </li>
+                    </ul>
+                    <button class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full
+                                 transition-transform duration-300 transform hover:scale-105
+                                 shadow-lg">
+                        Choose Plan
+                    </button>
+                </div>
+
+                <!-- Quarterly Plan -->
+                <div class="bg-gray-900 bg-opacity-50 rounded-xl p-8 text-center card-hover hover:bg-gray-900/70 border border-gray-700">
+                    <h3 class="text-xl font-bold mb-4">
+                        Quarterly
+                    </h3>
+                    <p class="text-4xl font-bold text-amber-600 mb-4">
+                        14,000 PKR
+                    </p>
+                    <p class="text-gray-400 mb-6">
+                        /3 months
+                    </p>
+                    <ul class="text-left text-gray-300 space-y-4 mb-8">
+                        <li class="flex items-center justify-start">
+                            <svg class="w-5 h-5 text-amber-600 mr-3">
+                                <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-check"></use>
+                            </svg>
+                            Access to all equipment
+                        </li>
+                        <li class="flex items-center justify-start">
+                            <svg class="w-5 h-5 text-amber-600 mr-3">
+                                <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-check"></use>
+                            </svg>
+                            Group fitness classes
+                        </li>
+                        <li class="flex items-center justify-start">
+                            <svg class="w-5 h-5 text-amber-600 mr-3">
+                                <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-check"></use>
+                            </svg>
+                            Locker room access
+                        </li>
+                        <li class="flex items-center justify-start">
+                            <svg class="w-5 h-5 text-amber-600 mr-3">
+                                <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-check"></use>
+                            </svg>
+                            Free fitness assessment
+                        </li>
+                        <li class="flex items-center justify-start">
+                            <svg class="w-5 h-5 text-amber-600 mr-3">
+                                <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-check"></use>
+                            </svg>
+                            1 free personal training session/month
+                        </li>
+                    </ul>
+                    <button class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full
+                                 transition-transform duration-300 transform hover:scale-105
+                                 shadow-lg">
+                        Choose Plan
+                    </button>
+                </div>
+
+                <!-- Yearly Plan -->
+                <div class="bg-gray-900 bg-opacity-50 rounded-xl p-8 text-center card-hover hover:bg-gray-900/70 border border-gray-700">
+                    <h3 class="text-xl font-bold mb-4">
+                        Yearly
+                    </h3>
+                    <p class="text-4xl font-bold text-amber-600 mb-4">
+                        50,000 PKR
+                    </p>
+                    <p class="text-gray-400 mb-6">
+                        /year
+                    </p>
+                    <ul class="text-left text-gray-300 space-y-4 mb-8">
+                        <li class="flex items-center justify-start">
+                            <svg class="w-5 h-5 text-amber-600 mr-3">
+                                <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-check"></use>
+                            </svg>
+                            Access to all equipment
+                        </li>
+                        <li class="flex items-center justify-start">
+                            <svg class="w-5 h-5 text-amber-600 mr-3">
+                                <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-check"></use>
+                            </svg>
+                            Group fitness classes
+                        </li>
+                        <li class="flex items-center justify-start">
+                            <svg class="w-5 h-5 text-amber-600 mr-3">
+                                <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-check"></use>
+                            </svg>
+                            Locker room access
+                        </li>
+                        <li class="flex items-center justify-start">
+                            <svg class="w-5 h-5 text-amber-600 mr-3">
+                                <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-check"></use>
+                            </svg>
+                            Free fitness assessment
+                        </li>
+                        <li class="flex items-center justify-start">
+                            <svg class="w-5 h-5 text-amber-600 mr-3">
+                                <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-check"></use>
+                            </svg>
+                            2 free personal training sessions/month
+                        </li>
+                        <li class="flex items-center justify-start">
+                            <svg class="w-5 h-5 text-amber-600 mr-3">
+                                <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-check"></use>
+                            </svg>
+                            Complimentary fitness consultation
+                        </li>
+                    </ul>
+                    <button class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full
+                                 transition-transform duration-300 transform hover:scale-105
+                                 shadow-lg">
+                        Choose Plan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories / Testimonials Section -->
+    <section id="testimonials" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">
+                Success Stories
+            </h2>
+            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+                Hear from our members who transformed their lives at Alpha Core Fitness
+            </p>
+            <div class="grid gap-8 sm:grid-cols-1 lg:grid-cols-3">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <div class="h-10 w-10 bg-amber-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-white">
+                                    <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-user-circle"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="font-semibold text-white">Ahmed Khan</h3>
+                            <p class="text-sm text-amber-400">Member for 8 months</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 italic">
+                        "I lost 30 pounds and gained confidence I never knew I had. The trainers at Alpha Core Fitness genuinely care about your progress and push you to be your best self."
+                    </p>
+                    <div class="flex items-center space-x-2 text-amber-400">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 6.748c.304 1.353-.894 2.34-2.176 1.718l-5.648-2.17a1 1 0 00-1.364 0l-5.648 2.17a1 1 0 00-2.176-1.718l1.518-6.748a1 1 0 00-.363-1.118l-3.976-2.888a1 1 0 00.588-1.81h4.915a1 1 0 00.95-.69l1.519-4.674z"/>
+                        </svg>
+                        <span>5.0 Rating</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <div class="h-10 w-10 bg-amber-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-white">
+                                    <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-user-circle"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="font-semibold text-white">Fatima Ali</h3>
+                            <p class="text-sm text-amber-400">Member for 1 year</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 italic">
+                        "As a busy mom, I needed a gym that understood my schedule. Alpha Core Fitness's flexible hours and personalized training helped me regain my strength and energy."
+                    </p>
+                    <div class="flex items-center space-x-2 text-amber-400">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 6.748c.304 1.353-.894 2.34-2.176 1.718l-5.648-2.17a1 1 0 00-1.364 0l-5.648 2.17a1 1 0 00-2.176-1.718l1.518-6.748a1 1 0 00-.363-1.118l-3.976-2.888a1 1 0 00.588-1.81h4.915a1 1 0 00.95-.69l1.519-4.674z"/>
+                        </svg>
+                        <span>4.9 Rating</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <div class="h-10 w-10 bg-amber-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-white">
+                                    <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-user-circle"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="font-semibold text-white">Ali Raza</h3>
+                            <p class="text-sm text-amber-400">Member for 6 months</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 italic">
+                        "The community at Alpha Core Fitness is incredible. Everyone motivates each other, and the variety of equipment means I never get bored with my workouts."
+                    </p>
+                    <div class="flex items-center space-x-2 text-amber-400">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 6.748c.304 1.353-.894 2.34-2.176 1.718l-5.648-2.17a1 1 0 00-1.364 0l-5.648 2.17a1 1 0 00-2.176-1.718l1.518-6.748a1 1 0 00-.363-1.118l-3.976-2.888a1 1 0 00.588-1.81h4.915a1 1 0 00.95-.69l1.519-4.674z"/>
+                        </svg>
+                        <span>4.8 Rating</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us & Location Section -->
+    <section id="contact" class="py-16 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid gap-8 md:grid-cols-2">
+                <!-- Contact Form -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-6">Contact Us</h2>
+                    <p class="text-gray-400 mb-6">
+                        Have questions or ready to start your fitness journey? Reach out to us today!
+                    </p>
+                    <form id="contactForm" action="https://formspree.io/f/xoqoqgjw" method="POST" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" name="name" placeholder="Your Name" class="form-input" required>
+                            <input type="email" name="email" placeholder="Your Email" class="form-input" required>
+                        </div>
+                        <input type="tel" name="phone" placeholder="Phone Number" class="form-input" required>
+                        <textarea name="message" placeholder="Your Message" class="form-textarea" required></textarea>
+                        <button type="submit" class="form-submit w-full">
+                            Send Message
+                        </button>
+                    </form>
+                    <!-- Success Message (hidden by default) -->
+                    <div id="successMessage" class="hidden">
+                        <div class="flex items-start space-x-3">
+                            <svg class="h-5 w-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 002 0v-2.586l2.293 2.293a1 1 0 001.415-.415l3-3a1 1 0 00-1.415-1.414l-2.293 2.293v-.002z"/>
+                            </svg>
+                            <div>
+                                <h3 class="text-lg font-medium text-white">Thank You!</h3>
+                                <div class="text-sm">Your message has been sent successfully. We'll get back to you soon!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location & Hours -->
+                <div class="space-y-6">
+                    <div class="contact-card">
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-amber-600 flex-shrink-0">
+                                    <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-map-pin"></use>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white mb-1">Our Location</h3>
+                                <p class="text-gray-300">
+                                    Plot no 3 IJP Service Road<br>
+                                    Islamabad
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-amber-600 flex-shrink-0">
+                                    <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-clock"></use>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white mb-1">Gym Hours</h3>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-gray-300">
+                                        <span>Monday - Friday:</span>
+                                        <span>5:00 AM - 10:00 PM</span>
+                                    </div>
+                                    <div class="flex justify-between text-gray-300">
+                                        <span>Saturday - Sunday:</span>
+                                        <span>7:00 AM - 8:00 PM</span>
+                                    </div>
+                                    <div class="flex justify-between text-gray-300 pt-2 border-t">
+                                        <span>Holidays:</span>
+                                        <span>8:00 AM - 6:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-amber-600 flex-shrink-0">
+                                    <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-phone"></use>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white mb-1">Contact Information</h3>
+                                <p class="text-gray-300 space-y-1">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-amber-400">
+                                            <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-phone"></use>
+                                        </svg>
+                                        (555) 123-4567
+                                    </span>
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-amber-400">
+                                            <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-phone"></use>
+                                        </svg>
+                                        03415764002
+                                    </span>
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-amber-400">
+                                            <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-mail"></use>
+                                        </svg>
+                                        info@alphacorefitness.com
+                                    </span>
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-amber-400">
+                                            <use xlink:href="https://unpkg.com/@heroicons/html@2.0.18/outline/sprite.svg#icon-globe"></use>
+                                        </svg>
+                                        www.alphacorefitness.com
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 text-center text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p>&copy; 2026 Alpha Core Fitness. All rights reserved.</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="hover:text-amber-400 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-amber-400 transition-colors">Terms of Service</a>
+                <a href="#" class="hover:text-amber-400 transition-colors">Careers</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio element for click sound -->
+    <audio id="clickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-chime-winning-2016.mp3" preload="auto"></audio>
+
+    <script>
+        // Sound for Join Now button - improved reliability
+        document.getElementById('joinNowBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const audio = document.getElementById('clickSound');
+            // Reset audio to start and play immediately
+            audio.currentTime = 0;
+            audio.play().catch(e => {
+                // Silent fail for audio - don't let it break the UX
+                console.log("Audio play failed (may be autoplay restricted):", e);
+            });
+            // Scroll to contact section after a brief moment to allow sound to start
+            setTimeout(() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100); // 100ms delay
+        });
+
+        // Form submission handling with demo mode for local development
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    const originalButtonText = submitButton.innerHTML;
+
+                    // Basic client-side validation
+                    const name = form.name.value.trim();
+                    const email = form.email.value.trim();
+                    const message = form.message.value.trim();
+
+                    if (!name || !email || !message) {
+                        alert('Please fill in all fields');
+                        return;
+                    }
+
+                    // Basic email format check
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(email)) {
+                        alert('Please enter a valid email address');
+                        return;
+                    }
+
+                    submitButton.innerHTML = 'Sending...';
+                    submitButton.disabled = true;
+
+                    const formData = new FormData(form);
+                    const object = {};
+                    formData.forEach((value, key) => {
+                        object[key] = value;
+                    });
+                    const json = JSON.stringify(object);
+
+                    // Log what we're sending for debugging
+                    console.log('Submitting to:', form.action);
+                    console.log('Data:', object);
+
+                    // Try to submit to Formspree
+                    fetch(form.action, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: json
+                    })
+                    .then(response => {
+                        // Log response status for debugging
+                        console.log('Formspree response status:', response.status);
+                        console.log('Formspree response ok:', response.ok);
+
+                        // Check if response is ok
+                        if (!response.ok) {
+                            // For demo purposes, if Formspree fails, we'll still show success
+                            // but log the error so they know what's wrong
+                            console.warn('Formspree submission failed (likely needs setup):', response.status);
+                            // Show success anyway for demo - remove this in production when Formspree is set up
+                            return { success: true, demo: true }; // Simulate success for demo
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Formspree response data:', data);
+
+                        // Hide form, show success message
+                        form.style.display = 'none';
+                        const successMessage = document.getElementById('successMessage');
+                        if (successMessage) {
+                            // Show different message if it was a demo
+                            if (data && data.demo) {
+                                successMessage.innerHTML = `
+                                    <div class="flex items-start space-x-3">
+                                        <svg class="h-5 w-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 002 0v-2.586l2.293 2.293a1 1 0 001.415-.415l3-3a1 1 0 00-1.415-1.414l-2.293 2.293v-.002z"/>
+                                        </svg>
+                                        <div>
+                                            <h3 class="text-lg font-medium text-white">Thank You! (Demo Mode)</h3>
+                                            <div class="text-sm">Your message would have been sent successfully. In a live site, this would go to Formspree.</div>
+                                        </div>
+                                    </div>
+                                `;
+                            } else {
+                                successMessage.innerHTML = `
+                                    <div class="flex items-start space-x-3">
+                                        <svg class="h-5 w-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 002 0v-2.586l2.293 2.293a1 1 0 001.415-.415l3-3a1 1 0 001.415-.415l-2.293 2.293v-.002z"/>
+                                        </svg>
+                                        <div>
+                                            <h3 class="text-lg font-medium text-white">Thank You!</h3>
+                                            <div class="text-sm">Your message has been sent successfully. We'll get back to you soon!</div>
+                                        </div>
+                                    </div>
+                                `;
+                            }
+                            successMessage.classList.remove('hidden');
+                        }
+                        form.reset();
+                        // Reset button state
+                        submitButton.innerHTML = originalButtonText;
+                        submitButton.disabled = false;
+                    })
+                    .catch(error => {
+                        console.error('Form submission error:', error);
+                        // Even on network error, show success for demo
+                        console.warn('Network error, showing demo success:', error);
+
+                        // Hide form, show success message (demo mode)
+                        form.style.display = 'none';
+                        const successMessage = document.getElementById('successMessage');
+                        if (successMessage) {
+                            successMessage.innerHTML = `
+                                <div class="flex items-start space-x-3">
+                                    <svg class="h-5 w-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 002 0v-2.586l2.293 2.293a1 1 0 001.415-.415l3-3a1 1 0 001.415-.415l-2.293 2.293v-.002z"/>
+                                    </svg>
+                                    <div>
+                                        <h3 class="text-lg font-medium text-white">Thank You! (Demo Mode)</h3>
+                                        <div class="text-sm">Your message would have been sent successfully. Please check your connection and Formspree setup for live submissions.</div>
+                                    </div>
+                                </div>
+                            `;
+                            successMessage.classList.remove('hidden');
+                        }
+                        form.reset();
+                        // Reset button state
+                        submitButton.innerHTML = originalButtonText;
+                        submitButton.disabled = false;
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
