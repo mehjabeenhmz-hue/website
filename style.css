@@ -1,9 +1,9 @@
 /* Custom dark gradient for hero with gym image */
 .hero-bg {
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5)),
-                      url('https://images.unsplash.com/photo-1517836357463-d6bdc5c2c65d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNjUyOXwwfDF8c2VhcmNofDF8fGd5bSUyMHdpbGRpbmd8ZW58MHx8fHwxNjY5Mjk5MjIw&ixlib=rb-1.2.1&q=80&w=1080');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1517836357463-d6bdc5c2c65d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNjUyOXwwfDF8c2VhcmNofDF8fGd5bSUyMHdpbGRpbmd8ZW58MHx8fHwxNjY1MTg4MjYw&ixlib=rb-1.2.1&q=80&w=1080');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     height: 100vh;
 }
 
